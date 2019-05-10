@@ -1,0 +1,28 @@
+{
+  "name": "blockly-snippet",
+  "displayName": "blockly-snippet",
+  "description": "these snippet is about google's blockly !",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "json": "node utils/clip.js -f json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "clipboardy": "^1.2.3",
+    "optimist": "^0.6.1"
+  }
+}

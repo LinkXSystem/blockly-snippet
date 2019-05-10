@@ -1,0 +1,81 @@
+{
+  "Create Blockly In Javascript's file": {
+    "prefix": "block",
+    "body": [
+      "const $1 = {",
+      "  type: '$1',",
+      "  message0: '${$2}',",
+      "  args0: [",
+      "    {",
+      "      type: 'input_value',",
+      "      name: 'VALUE',",
+      "      check: 'String'",
+      "    }",
+      "  ],",
+      "  output: 'Number',",
+      "  colour: $2,",
+      "  tooltip: 'Returns number of letters in the provided text.',",
+      "  helpUrl: 'http://www.w3schools.com/jsref/jsref_length_string.asp'",
+      "};",
+      "",
+      "Blockly.Blocks['$1'] = {",
+      "  init: function() {",
+      "    this.jsonInit($1);",
+      "  }",
+      "};"
+    ],
+    "description": "Create Blockly on Javascript's file"
+  },
+
+  "Create Blockly In Json's file": {
+    "prefix": "block",
+    "body": [
+      "{",
+      "  type: '$1',",
+      "  message0: '${$2}',",
+      "  args0: [",
+      "    {",
+      "      type: 'input_value',",
+      "      name: 'VALUE',",
+      "      check: 'String'",
+      "    }",
+      "  ],",
+      "  output: 'Number',",
+      "  colour: $2,",
+      "  tooltip: 'Returns number of letters in the provided text.',",
+      "  helpUrl: 'http://www.w3schools.com/jsref/jsref_length_string.asp'",
+      "};"
+    ],
+    "description": "Create Blockly on json's file"
+  },
+
+  "Create Blockly Message In Javascript's file": {
+    "prefix": "message",
+    "body": ["Blockly.Msg['$1'] = '$2'"],
+    "description": "Create Blockly on Javascript's file"
+  },
+
+  "Create Blockly Tag is block In Html's file": {
+    "prefix": "block",
+    "body": ["<block type=\"${1}\"></block>"],
+    "description": "Create Blockly on Html's file"
+  },
+
+  "Create Blockly Tag is category In Html's file": {
+    "prefix": "block",
+    "body": ["<category name=\"$1\" colour=\"$2\"></category>"],
+    "description": "Create Blockly on Html's file"
+  },
+
+  "Create Blockly Toolbox In Html's file": {
+    "prefix": "block",
+    "body": [
+      "<xml id=\"toolbox\">",
+      "  <category name=\"$1\" colour=\"$2\">",
+      "    <block type=\"$3\" />",
+      "  </category>",
+      "</xml>"
+    ],
+    "description": "Create Blockly on Html's file"
+  }
+}
