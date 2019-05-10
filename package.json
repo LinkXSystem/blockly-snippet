@@ -12,7 +12,7 @@
   "contributes": {
     "snippets": [
       {
-        "language": "javascript",
+        "language": "javascript,html,json",
         "path": "./snippets/snippets.json"
       }
     ]
