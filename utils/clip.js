@@ -6,25 +6,46 @@ class Text {
     return target.split(/\n/g).filter(str => !!str);
   }
 
-  static json(target) {
-    const cache = target.replace(/"/g, "'");
-    return this;
+  static map(func) {
+    return target => target.map(item => func(item));
   }
 
-  static argv(target) {
-    return target;
+  static replace(regex) {}
+
+  static lint(regex) {}
+
+  static json(target) {
+    return target.replace(/"/g, "'");
+  }
+
+  static string(target) {
+    const type = typeof target;
+
+    switch (type) {
+      case "object":
+        if (target instanceof Array) {
+          return target.map(item => Text.string(item)).join("\n");
+        }
+        return JSON.stringify(target);
+      default:
+        return target.toString();
+    }
   }
 
   static compose() {
     const functions = [].slice.call(arguments, 1);
-    let target = [].slice.call(arguments, 0, 1);
+    let target = [].slice.call(arguments, 0, 1)[0];
 
-    while (functions) {
+    let cache = target;
+
+    while (functions.length) {
       let fn = functions.shift();
-      cache = fn.apply(this, target)
+      if (fn) {
+        cache = fn.apply(null, [cache]);
+      }
     }
 
-    return 
+    return cache;
   }
 }
 
@@ -35,4 +56,16 @@ if (!content) {
   console.log("=========== CLIP'S CONTENT IS EMPTY ===========");
   console.log("===============================================");
   return;
+}
+
+const { f } = argv || {};
+
+if (f && f === "json") {
+  const text = Text.compose(
+    content,
+    Text.clear,
+    Text.map(Text.json),
+    Text.string
+  );
+  clipborady.writeSync(text);
 }
